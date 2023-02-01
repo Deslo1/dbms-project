@@ -1,0 +1,11 @@
+.form {
+    text-align: center;
+    height: 60vh;
+    border: 5px solid white;
+    border-radius: 10px;
+    width: 30vw;
+}
+
+#desc{
+    height: 70px;
+}

@@ -1,0 +1,24 @@
+[
+{
+    "name":"Ravi",
+    "jurisdiction":"Thrissur",
+    "type":"Domestic Abuse",
+    "number":12345,
+    "description":"nil"
+},
+{
+    "name":"Richard",
+    "jurisdiction":"Thodupuzha",
+    "type":"Domestic Abuse",
+    "number":12345,
+    "description":"Rape"
+}
+,
+{
+    "name":"Rayyan",
+    "jurisdiction":"Allapuzha",
+    "type":"Domestic Abuse",
+    "number":12345,
+    "description":"Multiple Rapes"
+}
+]
