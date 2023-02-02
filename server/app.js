@@ -1,16 +1,17 @@
 const express = require('express');
-// const userRouter = require('./routes/userRoutes');
+const activeCallsRouter = require('./routes/activeCallsRouter');
+const cors = require('cors');
+
 const app = express();
 
+app.use(cors());
 app.use(express.json());
-app.use(express.static(`${__dirname}/public`));
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
 });
 
-// app.use('/api/v1/tours', tourRouter);
-// app.use('/api/v1/users', userRouter);
+app.use('/', activeCallsRouter);
 
 module.exports = app;

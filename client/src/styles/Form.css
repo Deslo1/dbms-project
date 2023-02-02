@@ -1,11 +1,22 @@
 .form {
     text-align: center;
-    height: 60vh;
+    height: auto;
     border: 5px solid white;
     border-radius: 10px;
     width: 30vw;
 }
 
-#desc{
-    height: 70px;
+textarea{
+    width: 20vw;
+    height: 20vh;
+}
+
+input{
+    width: 12vw;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

@@ -3,16 +3,16 @@ const validator = require('validator');
 
 const activeCallsSchema = new mongoose.Schema(
   {
-    name: {
+
+      name: {
       type: String,
       required: [true, 'A person must have a name'],
-      unique: false,
       trim: true,
       maxlength: [20, 'Name cannot be more than 20 characters'],
       minlength: [3, 'A name must be more than 3 characters'],
       validate: [validator.isAlpha, 'Name must only contain characters']
     },
-    jurisdiction: {
+     jurisdiction: {
       type: String,
       trim: true,
       minlength: [5, 'An address must be present'],
