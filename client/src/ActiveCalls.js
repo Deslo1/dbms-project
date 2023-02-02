@@ -14,48 +14,32 @@ function ActiveCalls(){
             }
         )
 
-    const [data, setdata] = React.useState(
-            {
-                name: "",
-                jurisdiction: "",
-                type: "",
-                number: 0,
-                description: ""
-            }
-        )
-
-
     React.useEffect(() => {
       axios.get("http://localhost:3001/").then( (response) => {
         setFormData(response.data.data.activecalls)
       })
     }, []);
 
-
-  
-    
-
-
     return(
         <div>
         <table>
         <h3>Active Calls</h3>
         <tr>
-        <td>Type</td>
-        <td>Name</td>
-        <td>Area</td>
-        <td>Priority</td>
+            <td>Type</td>
+            <td>Name</td>
+            <td>Area</td>
+            <td>Priority</td>
         </tr> 
         {formData.length>0&&(formData.map(data=>{
         return(
         <tr>
-        <td>{data.type}</td>
-        <td>{data.name}</td>
-        <td>{data.jurisdiction}</td>
-        <td>0</td>
+            <td>{data.type}</td>
+            <td>{data.name}</td>
+            <td>{data.jurisdiction}</td>
+            <td>0</td>
         </tr>
         )
-    }))}
+        }))}
         </table>
         </div>
 
