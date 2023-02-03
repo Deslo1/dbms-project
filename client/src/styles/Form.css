@@ -6,6 +6,11 @@
     width: 30vw;
 }
 
+.Home{
+    display: flex;
+    gap: 12vw;
+}
+
 textarea{
     width: 20vw;
     height: 20vh;

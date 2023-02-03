@@ -1,0 +1,19 @@
+[
+    {
+        "name":"Squad1",
+        "password":"squad1"
+    },
+    {
+        "name":"Squad2",
+        "password":"squad2"
+    },
+    {
+        "name":"Squad3",
+        "password":"squad3"
+    }
+    ,
+    {
+        "name":"dispatch",
+        "password":"dispatch"
+    }
+]

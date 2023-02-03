@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from "axios";
 import './styles/Form.css';
+import ActiveCalls from "./ActiveCalls.js"
+
 
 function Form(){
     const types=["Domestic Abuse","Armed Assault","Public Nuisance"];
@@ -27,17 +29,14 @@ function Form(){
         }
 
     function onSubmit(event) {
-            console.log("Data : ");
-            console.log(formData);
             axios.post("http://localhost:3001",formData).then((response) => {
-                console.log('success');
             });
   }
 
 
 
     return(
-        <div>
+        <div className='Home'>
         <form className='form'>
         <label>Name</label><br/>
         <input type="text" name="name" onChange={handleChange}></input><br/><br/>
@@ -53,6 +52,7 @@ function Form(){
         <textarea name="description" onChange={handleChange}></textarea><br/><br/>
         <input type='submit' onClick={onSubmit}></input><br/><br/>
         </form>
+        <ActiveCalls/>
         </div>
     );
 }
