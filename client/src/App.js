@@ -2,6 +2,7 @@ import './styles/App.css';
 import Form from "./Form.js";
 import Login from './Login.js';
 import Squad from './Squad';
+import ShowMap from "./ShowMap"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {

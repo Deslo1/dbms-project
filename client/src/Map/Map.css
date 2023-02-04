@@ -1,0 +1,7 @@
+.leaflet-routing-alternatives-container{
+    display: none;
+}
+
+.leaflet-marker-icon,.leaflet-marker-shadow{
+    display: none;
+}

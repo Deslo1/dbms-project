@@ -6,7 +6,6 @@ const activeCallsSchema = new mongoose.Schema(
 
       name: {
       type: String,
-      required: [true, 'A person must have a name'],
       trim: true,
       maxlength: [20, 'Name cannot be more than 20 characters'],
       minlength: [3, 'A name must be more than 3 characters'],
@@ -19,7 +18,6 @@ const activeCallsSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      required: [true, 'A type must be there'],
       enum: {
         values: ['Domestic Abuse', 'Armed Assault', 'Public Nuisance'],
         message: ''
@@ -32,6 +30,8 @@ const activeCallsSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
+    latitude:Number,
+    longitude:Number
   }
 );
 

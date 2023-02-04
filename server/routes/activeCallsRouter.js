@@ -6,6 +6,7 @@ const router = express.Router();
 router
   .route('')
   .get(activeCallsController.getAllactiveCalls)
-  .post(activeCallsController.createactiveCall);
+  .post(activeCallsController.createactiveCall)
+  .patch(activeCallsController.updateactiveCall);
 
 module.exports = router;

@@ -3,7 +3,6 @@ body{
 }
 
 .squadContainer{
-    position: fixed;
     display: flex;
     gap:15vw;
 }

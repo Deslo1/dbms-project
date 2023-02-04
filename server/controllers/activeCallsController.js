@@ -24,3 +24,23 @@ exports.createactiveCall = async (req, res, next) => {
     }
   });
 };
+
+exports.updateactiveCall= async(req,res)=>{
+try{
+const tour=await activeCalls.findByIdAndUpdate(req.params.id,req.body,{
+new:true,//return modified document
+runValidators:true//runs update validation against model' schema
+})
+res.status(200).json({
+status:'success',
+data:{
+tour//same as tour:tour
+}
+})
+}
+catch(err){
+res.status(404).json({
+status:'fail',
+message: err
+})
+}}
