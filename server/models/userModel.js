@@ -11,7 +11,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide a password'],
     select: false
-  }
+  },
+    jurisdiction: {
+    type: String
+  },
+  squad:[Object]
 })
 
 userSchema.pre('save', async function(next) {

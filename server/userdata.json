@@ -1,15 +1,70 @@
 [
     {
         "name":"Squad1",
-        "password":"squad1"
+        "password":"squad1",
+        "jurisdiction":"Thrissur",
+        "squad":
+                [{
+                "member":"Lee",
+                "role":"Leader"
+                },
+                {
+                "member":"John",
+                "role":"Officer"
+                },
+                {
+                "member":"Smith",
+                "role":"Officer"
+                },
+                {
+                "member":"Joe",
+                "role":"Support"
+                }]
+        
     },
     {
         "name":"Squad2",
-        "password":"squad2"
+        "password":"squad2",
+        "jurisdiction":"Allapuzha",
+        "squad":
+            [{
+            "member":"Schmoe",
+            "role":"Leader"
+            },
+            {
+            "member":"Lea",
+            "role":"Officer"
+            },
+            {
+            "member":"Chuck",
+            "role":"Officer"
+            },
+            {
+            "member":"Joseph",
+            "role":"Trainee"
+            }]
     },
     {
         "name":"Squad3",
-        "password":"squad3"
+        "password":"squad3",
+        "jurisdiction":"Thodupuzha",
+        "squad":
+            [{
+            "member":"Norris",
+            "role":"Leader"
+            },
+            {
+            "member":"Zen",
+            "role":"Officer"
+            },
+            {
+            "member":"Arnold",
+            "role":"Officer"
+            },
+            {
+            "member":"Rocky",
+            "role":"Support"
+            }]
     }
     ,
     {

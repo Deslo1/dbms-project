@@ -50,18 +50,17 @@ const { name, password } = req.body;
 
  // 3) If everything ok, send token to client
 
- const token=signToken(user._id);
- 
  if(name==='dispatch'){
  res.status(201).json({
  page: 'dispatch',
- token
+ user
  });
  }
+
  else{
  res.status(201).json({
  page: 'squad',
- token
+ user
  });
  }
 }

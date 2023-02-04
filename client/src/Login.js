@@ -27,11 +27,11 @@ function Login(){
             event.preventDefault();
             axios.post("http://localhost:3001/login",formData)
             .then((response) => {
+                console.log(response.data.user)
                 if(response.data.page==='dispatch')
                 navigate("/dispatch");
                 else
-                navigate("/squad");
-
+                navigate("/squad",{state:{data:response.data.user}});
             });
   }
 

@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+
+.squadContainer{
+    position: fixed;
+    display: flex;
+    gap:15vw;
+}
+
+
+.sidebar{
+    width: 20vw;
+    background-color: black;
+    height: 100vh;
+    text-align: center;
+    
+}
+
+.sidebar h1{
+    margin: 0;
+}
+
+.sidebar table{
+    width: 19vw;
+}
