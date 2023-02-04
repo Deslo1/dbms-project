@@ -1,5 +1,6 @@
-
+import "./styles/ShowMap.css";
 import Map from "./Map/Map";
+
 import { useEffect, useState } from "react";
 export default function App() {
 const [coords, setCorrds] = useState({
@@ -48,7 +49,7 @@ const [coords, setCorrds] = useState({
   }, []);
 
   return (
-    <div className="App">
+    <div className="full-map">
      {coords.latitude!=0&&<Map coords={coords} display_name={display_name}  />}
     </div>
   );

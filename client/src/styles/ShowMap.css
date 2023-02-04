@@ -1,0 +1,27 @@
+.App {
+  font-family: sans-serif;
+  /* text-align: center; */
+}
+
+label{
+  width:150px;
+}
+
+input{
+  width:200px;
+  margin: 2px;
+} 
+
+button{
+  width:100px;
+  padding:2px;
+  margin:5px;
+  
+}
+
+ .full-map .leaflet-container{
+  position: relative;
+  right: 15vw;
+  width: 100vw;
+  height: 100vh;
+} 

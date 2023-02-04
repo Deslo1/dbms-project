@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useState} from "react";
+import ShowMap from "./ShowMap"
 import axios from "axios";
 import "./styles/Squad.css";
 import { useLocation } from "react-router-dom";
@@ -20,7 +21,7 @@ function Squad(){
         )
         })
 
-    const [formData, setFormData] = React.useState(
+    const [formData, setFormData] = useState(
         {
             name: "",
             jurisdiction: "",
@@ -30,35 +31,57 @@ function Squad(){
         }
     )
 
+    const [checked,setChecked]=useState(false);
+    const [criminal,setCriminal]=useState(null);
+
+    function Change(name){
+    setCriminal(name);
+    }
+
+    function sendReq(){
+        axios.get(`http://localhost:3001/?name=${criminal}&jurisdiction=${jurisdiction}`).then((response)=>{
+            console.log(response);
+            setChecked(true);
+        })
+    }
+
+    function loadCases(){
+              setChecked(false);
+    }
+    
+
 
     React.useEffect(() => {
     axios.get(`http://localhost:3001/?jurisdiction=${jurisdiction}`).then( (response) => {
     setFormData(response.data.data.activecalls)
+    setCriminal(response.data.data.activecalls[0].name)
     })
     }, []);
-
 
     return(
         <div className="squadContainer">
             <div className="sidebar">
             <h1>{name} {number}</h1><br/>
-            <h1>{jurisdiction}</h1><br/>
+            <h1>{jurisdiction}</h1><br/><br/><br/><br/>
             <table>
             <tr>
             <th>Name</th>
             <th>Role</th>
             </tr> 
             {members}
-            </table>
+            </table><br/><br/><br/><br/>
+            {!checked&&<button className="case-button" onClick={sendReq}>Take Case</button>}
+            {checked&&<button className="case-closed" onClick={loadCases}>Case Closed</button>}
             </div>
-            <div>
-        <table>
+        <div>
+        {!checked&&<table>
         <h3>Active Calls</h3>
         <tr>
-            <td>Type</td>
-            <td>Name</td>
-            <td>Area</td>
-            <td>Priority</td>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Area</th>
+            <th>Priority</th>
+            <th>Check</th>
         </tr> 
         {formData.length>0&&(formData.map(data=>{
         return(
@@ -67,11 +90,16 @@ function Squad(){
             <td>{data.name}</td>
             <td>{data.jurisdiction}</td>
             <td>0</td>
+            <td><input 
+            type="checkbox"
+            checked={data.name===criminal?true:false}
+            onChange={() =>Change(data.name)}/></td>
         </tr>
         )
         }))}
-        </table>
-            </div>
+        </table>}
+         {checked&&<ShowMap/>}
+        </div>
         </div>
     )
 }

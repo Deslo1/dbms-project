@@ -23,3 +23,15 @@ body{
 .sidebar table{
     width: 19vw;
 }
+
+.sidebar button{
+    width: 10vw;
+}
+
+.case-button:hover{
+    background-color: greenyellow;
+}
+
+.case-closed:hover{
+    background-color: red;
+}
