@@ -7,9 +7,10 @@ import L from "leaflet";
 import "leaflet-routing-machine";
 
 
-export default function Map({ coords, display_name }) {
+export default function Map({ start,end,display_name }) {
   
-  const { latitude, longitude } = coords;
+  const { slatitude, slongitude } = start;
+  const { elatitude, elongitude } = end;
 
   const customIcon = new L.Icon({
     iconUrl: icon,
@@ -19,25 +20,23 @@ export default function Map({ coords, display_name }) {
 
   function MapView() {
     let map = useMap();
-    map.setView([latitude, longitude], map.getZoom());
-    map.on('click', onMapClick);
-    function onMapClick(e) {
-    const data={
-      latitude:e.latlng.lat,
-      longitude:e.latlng.lng
-    }
-    console.log(data);
-    L.marker([e.latlng.lat,e.latlng.lng],{icon:customIcon}).addTo(map);
-    // axios.post("http://localhost:3001",).then((response) => {
-    //         });
+    map.setView([slatitude, slongitude], map.getZoom());
+    // L.marker([e.latlng.lat,e.latlng.lng],{icon:customIcon}).addTo(map);
 
-    // L.Routing.control({
-    //   waypoints:[
-    //     L.latLng(latitude,longitude),
-    //     L.latLng(e.latlng.lat,e.latlng.lng)
-    //   ],
-    // }).addTo(map);
-}
+    L.Routing.control({
+      waypoints:[
+        L.latLng(slatitude,slongitude),
+        L.latLng(elatitude,elongitude)
+      ],
+      createMarker: function(i, wp, nWps) {
+    if (i === 0 || i === nWps - 1) {
+      // here change the starting and ending icons
+      return L.marker(wp.latLng, {
+        icon: customIcon // here pass the custom marker icon instance
+      });
+    } 
+  }
+    }).addTo(map);
     return null;
   }
 
@@ -46,7 +45,7 @@ export default function Map({ coords, display_name }) {
   return (
     <MapContainer
       classsName="map"
-      center={[latitude, longitude]}
+      center={[slatitude, slongitude]}
       zoom={5}
       scrollWheelZoom={true}
     >

@@ -1,11 +1,17 @@
 import "./styles/ShowMap.css";
 import Map from "./Map/Map";
-
 import { useEffect, useState } from "react";
-export default function App() {
-const [coords, setCorrds] = useState({
-    latitude: 0,
-    longitude: 0
+
+export default function App(cor) {
+
+const end = {
+  elatitude: cor.coords.latitude,
+  elongitude: cor.coords.longitude
+}
+
+const [start, setStart] = useState({
+    slatitude: 0,
+    slongitude: 0
   });
   const [display_name, setName] = useState("");
 
@@ -21,12 +27,12 @@ const [coords, setCorrds] = useState({
   };
 
   function getCurrentCityName(position){
-    setCorrds({
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude
+    setStart({
+      slatitude: position.coords.latitude,
+      slongitude: position.coords.longitude
     }); 
    let url="https://nominatim.openstreetmap.org/reverse?format=jsonv2"+
-   "&lat="+coords.latitude+"&lon="+coords.longitude;
+   "&lat="+start.latitude+"&lon="+start.longitude;
 
     fetch(url, {
       method: "GET",   
@@ -50,7 +56,7 @@ const [coords, setCorrds] = useState({
 
   return (
     <div className="full-map">
-     {coords.latitude!=0&&<Map coords={coords} display_name={display_name}  />}
+     {start.slatitude!=0&&<Map start={start} end={end} display_name={display_name}  />}
     </div>
   );
 }

@@ -7,7 +7,6 @@ import { useLocation } from "react-router-dom";
 function Squad(){
 
     const {state} = useLocation();
-    console.log(state.data)
     const jurisdiction=state.data.jurisdiction;
     const name= state.data.name.substring(0,5);
     const number= state.data.name[name.length];
@@ -31,6 +30,10 @@ function Squad(){
         }
     )
 
+    const [coords,setCorrds]=useState({
+        latitude:0,
+        longitude:0
+    })
     const [checked,setChecked]=useState(false);
     const [criminal,setCriminal]=useState(null);
 
@@ -40,7 +43,11 @@ function Squad(){
 
     function sendReq(){
         axios.get(`http://localhost:3001/?name=${criminal}&jurisdiction=${jurisdiction}`).then((response)=>{
-            console.log(response);
+            console.log(response.data.data.activecalls[0].latitude);
+            setCorrds({
+                latitude:response.data.data.activecalls[0].latitude,
+                longitude:response.data.data.activecalls[0].longitude
+            })
             setChecked(true);
         })
     }
@@ -98,7 +105,7 @@ function Squad(){
         )
         }))}
         </table>}
-         {checked&&<ShowMap/>}
+        {checked&&coords.latitude!=0&&<ShowMap coords={coords}/>}
         </div>
         </div>
     )

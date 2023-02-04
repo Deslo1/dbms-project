@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from "axios";
 import './styles/Form.css';
-import Map from "./Map/Map";
 import { useEffect, useState } from "react";
 import ActiveCalls from "./ActiveCalls.js"
 import "leaflet/dist/leaflet.css";
@@ -13,7 +12,7 @@ import "./Map/Map.css";
 
 
 function Form(){
-    
+
     const types=["Domestic Abuse","Armed Assault","Public Nuisance"];
     const gettypes=types.map(type=>{
         return(<option value={type}>{type}</option>)});
@@ -43,12 +42,13 @@ function Form(){
             console.log(formData)
             axios.post("http://localhost:3001",formData).then((response) => {
             });
-  }
+            }
 
   const [coords, setCorrds] = useState({
     latitude: 0,
     longitude: 0
   });
+
 
   function error() {
     alert('Sorry, no position available.');
@@ -91,20 +91,26 @@ function Form(){
     iconAnchor: [5, 30]
   });
 
+    var marker;
+    let i=0;
+
   function MapView() {
     let map = useMap();
     map.setView([coords.latitude,coords.longitude], map.getZoom());
     map.on('click', onMapClick);
     function onMapClick(e) {
-    setFormData(prevFormData =>{
+        if(i>0)
+        map.removeLayer(marker);
+        i++;
+        marker=new L.Marker(e.latlng,{icon:customIcon}).addTo(map);
+        setFormData(prevFormData =>{
                 return{
                     ...prevFormData,
                     latitude:e.latlng.lat,
                     longitude:e.latlng.lng
                 }
             })
-    L.marker([e.latlng.lat,e.latlng.lng],{icon:customIcon}).addTo(map);
-    }
+    };
     return null;
   }
 
