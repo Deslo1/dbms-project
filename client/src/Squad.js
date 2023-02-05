@@ -104,13 +104,13 @@ function Squad(){
         </tr>
         )
         }))}
-        </table>}
+        </table>
+        }
         {checked&&coords.latitude!==0&&<ShowMap coords={coords}/>}
         </div>
-
-    <button className="logOutButtonSquad" onClick={()=>window.location.href="http://localhost:3000/"}>
+        {!checked&&<button className="logOutButtonSquad" onClick={()=>window.location.href="http://localhost:3000/"}>
         Log Out
-      </button>
+        </button>}
         </div>
     )
 }
