@@ -2,10 +2,10 @@ const activeCalls = require('./../models/activeCallsModel');
 
 
 exports.getAllactiveCalls =async (req, res, next) => {
+  try{
   const queryObj={...req.query};//gives extra fields
   const query = activeCalls.find(queryObj);//if we directly await we cannot do things like limit and paging
   const activecalls= await query;
-  // SEND RESPONSE
   res.status(200).json({
     status: 'success',
     results: activecalls.length,
@@ -13,9 +13,16 @@ exports.getAllactiveCalls =async (req, res, next) => {
       activecalls
     }
   });
-};
+}
+
+catch(err){
+res.status(404).json({
+status:'fail',
+message:err})
+}};
 
 exports.createactiveCall = async (req, res, next) => {
+  try{
   const newactivecall = await activeCalls.create(req.body);
   res.status(201).json({
     status: 'success',
@@ -23,24 +30,26 @@ exports.createactiveCall = async (req, res, next) => {
       activecalls: newactivecall
     }
   });
-};
+}
 
-exports.updateactiveCall= async(req,res)=>{
-try{
-const tour=await activeCalls.findByIdAndUpdate(req.params.id,req.body,{
-new:true,//return modified document
-runValidators:true//runs update validation against model' schema
-})
-res.status(200).json({
-status:'success',
-data:{
-tour//same as tour:tour
-}
-})
-}
 catch(err){
 res.status(404).json({
 status:'fail',
-message: err
-})
-}}
+message:err})
+}
+};
+
+exports.deleteactiveCalls=async(req,res)=>{
+try{
+await activeCalls.findByIdAndDelete(req.params.id);
+res.status(200).json({
+status:'success',
+data:null})
+}
+
+catch(err){
+res.status(404).json({
+status:'fail',
+message:err})
+}
+}

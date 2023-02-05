@@ -39,7 +39,6 @@ function Form(){
         }
 
     function onSubmit(event) {
-            console.log(formData)
             axios.post("http://localhost:3001",formData).then((response) => {
             });
             }
@@ -132,7 +131,7 @@ function Form(){
         <label>Description</label><br/>
         <textarea name="description" onChange={handleChange}></textarea><br/><br/>
        <div className='leaflet-container'> 
-       {coords.latitude!=0&&
+        {coords.latitude!=0&&
         <MapContainer
         classsName="map"
         center={[coords.latitude,coords.longitude]}

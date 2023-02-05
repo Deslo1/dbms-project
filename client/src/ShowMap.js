@@ -13,13 +13,11 @@ const [start, setStart] = useState({
     slatitude: 0,
     slongitude: 0
   });
-  const [display_name, setName] = useState("");
-
-  const [address, setAddress] = useState({});
 
   function error() {
     alert('Sorry, no position available.');
   }
+
   const options = {
     enableHighAccuracy: true,
     maximumAge: 30000,
@@ -32,7 +30,7 @@ const [start, setStart] = useState({
       slongitude: position.coords.longitude
     }); 
    let url="https://nominatim.openstreetmap.org/reverse?format=jsonv2"+
-   "&lat="+start.latitude+"&lon="+start.longitude;
+   "&lat="+start.slatitude+"&lon="+start.slongitude;
 
     fetch(url, {
       method: "GET",   
@@ -42,7 +40,6 @@ const [start, setStart] = useState({
       }
     })
       .then((response) => response.json())
-      .then((data) => setName( data.display_name));
   }
 
   useEffect(() => {
@@ -50,13 +47,12 @@ const [start, setStart] = useState({
     getCurrentCityName,
     error,
     options
-
     );
   }, []);
 
   return (
     <div className="full-map">
-     {start.slatitude!=0&&<Map start={start} end={end} display_name={display_name}  />}
+     {start.slatitude!=0&&<Map start={start} end={end} />}
     </div>
   );
 }

@@ -7,6 +7,9 @@ router
   .route('')
   .get(activeCallsController.getAllactiveCalls)
   .post(activeCallsController.createactiveCall)
-  .patch(activeCallsController.updateactiveCall);
+
+router
+  .route('/:id')
+  .delete(activeCallsController.deleteactiveCalls);
 
 module.exports = router;

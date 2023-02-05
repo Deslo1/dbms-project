@@ -6,8 +6,7 @@ import icon from "./../icon.png";
 import L from "leaflet";
 import "leaflet-routing-machine";
 
-
-export default function Map({ start,end,display_name }) {
+export default function Map({ start,end}) {
   
   const { slatitude, slongitude } = start;
   const { elatitude, elongitude } = end;

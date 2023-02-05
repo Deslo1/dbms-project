@@ -36,6 +36,7 @@ function Squad(){
     })
     const [checked,setChecked]=useState(false);
     const [civ,setCiv]=useState(null);
+    const [id,setId]=useState("");
 
     function Change(name){
     setCiv(name);
@@ -43,7 +44,7 @@ function Squad(){
 
     function sendReq(){
         axios.get(`http://localhost:3001/?name=${civ}&jurisdiction=${jurisdiction}`).then((response)=>{
-            console.log(response.data.data.activecalls[0].latitude);
+            setId(response.data.data.activecalls[0]._id);
             setCorrds({
                 latitude:response.data.data.activecalls[0].latitude,
                 longitude:response.data.data.activecalls[0].longitude
@@ -52,8 +53,12 @@ function Squad(){
         })
     }
 
-    function loadCases(){
+    function loadNewCases(){
               setChecked(false);
+              axios.delete(`http://localhost:3001/${id}`).then((response)=>{
+                console.log(response);
+                window.location.href="http://localhost:3000/squad";
+              })
     }
     
 
@@ -78,7 +83,7 @@ function Squad(){
             {members}
             </table><br/><br/><br/><br/>
             {!checked&&<button className="case-button" onClick={sendReq}>Take Case</button>}
-            {checked&&<button className="case-closed" onClick={loadCases}>Case Closed</button>}
+            {checked&&<button className="case-closed" onClick={loadNewCases}>Case Closed</button>}
             </div>
         <div>
         {!checked&&<table>
