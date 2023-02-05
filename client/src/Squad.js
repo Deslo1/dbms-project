@@ -25,7 +25,7 @@ function Squad(){
             name: "",
             jurisdiction: "",
             type: "",
-            number: 0,
+            priority: 0,
             description: ""
         }
     )
@@ -64,7 +64,7 @@ function Squad(){
 
 
     React.useEffect(() => {
-    axios.get(`http://localhost:3001/?jurisdiction=${jurisdiction}`).then( (response) => {
+    axios.get(`http://localhost:3001/?jurisdiction=${jurisdiction}&sort=-priority`).then( (response) => {
     setFormData(response.data.data.activecalls)
     setCiv(response.data.data.activecalls[0].name)
     })
@@ -87,7 +87,7 @@ function Squad(){
             </div>
         <div>
         {!checked&&<table>
-        <h3>Active Calls</h3>
+        <h3>Active Call</h3>
         <tr>
             <th>Type</th>
             <th>Name</th>
@@ -101,7 +101,7 @@ function Squad(){
             <td>{data.type}</td>
             <td>{data.name}</td>
             <td>{data.jurisdiction}</td>
-            <td>0</td>
+            <td>{data.priority}</td>
             <td><input 
             type="checkbox"
             checked={data.name===civ?true:false}

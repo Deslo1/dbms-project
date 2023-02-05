@@ -10,12 +10,13 @@ function ActiveCalls(){
                 jurisdiction: "",
                 type: "",
                 number: 0,
-                description: ""
+                description: "",
+                priority:0
             }
         )
 
     React.useEffect(() => {
-      axios.get("http://localhost:3001/").then( (response) => {
+      axios.get("http://localhost:3001/?sort=-priority").then( (response) => {
         setFormData(response.data.data.activecalls)
       })
     }, []);
@@ -36,7 +37,7 @@ function ActiveCalls(){
             <td>{data.type}</td>
             <td>{data.name}</td>
             <td>{data.jurisdiction}</td>
-            <td>0</td>
+            <td>{data.priority}</td>
         </tr>
         )
         }))}

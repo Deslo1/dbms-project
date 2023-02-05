@@ -4,7 +4,13 @@ const activeCalls = require('./../models/activeCallsModel');
 exports.getAllactiveCalls =async (req, res, next) => {
   try{
   const queryObj={...req.query};//gives extra fields
-  const query = activeCalls.find(queryObj);//if we directly await we cannot do things like limit and paging
+  const excludedFields=['page','sort','limit','fields'];
+  excludedFields.forEach(el=>delete queryObj[el]);
+  let quertyStr=JSON.stringify(queryObj)
+  let query = activeCalls.find(JSON.parse(quertyStr));//if we directly await we cannot do things like limit and paging
+  if(req.query.sort){
+  query=query.sort(req.query.sort)//this sorts as price
+  }
   const activecalls= await query;
   res.status(200).json({
     status: 'success',

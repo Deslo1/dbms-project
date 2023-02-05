@@ -14,8 +14,18 @@ import "./Map/Map.css";
 function Form(){
 
     const types=["Domestic Abuse","Armed Assault","Public Nuisance"];
+    const jurisdictions=["Thrissur","Thodupuzha","Allapuzha"];
+    const priority=[];
+    for(let i=1;i<11;i++){
+        priority.push(i);
+    }
+
+    const getjur=jurisdictions.map(jur=>{
+        return(<option value={jur}>{jur}</option>)});
     const gettypes=types.map(type=>{
         return(<option value={type}>{type}</option>)});
+    const getpriorities=priority.map(pr=>{
+        return(<option value={pr}>{pr}</option>)});
 
         const [formData, setFormData] = React.useState(
             {
@@ -25,7 +35,8 @@ function Form(){
                 number: 0,
                 description: "",
                 latitude:null,
-                longitude:null
+                longitude:null,
+                priority:0
             }
         )
 
@@ -65,7 +76,6 @@ function Form(){
     }); 
    let url="https://nominatim.openstreetmap.org/reverse?format=jsonv2"+
    "&lat="+coords.latitude+"&lon="+coords.longitude;
-
     fetch(url, {
       method: "GET",   
       mode: 'cors', 
@@ -121,16 +131,25 @@ function Form(){
         <label>Name</label><br/>
         <input type="text" name="name" onChange={handleChange}></input><br/><br/>
         <label>Jurisdiction</label><br/>
-        <input type="text" name="jurisdiction"  onChange={handleChange}></input><br/><br/><br/>
+        <select name="jurisdiction" id="jurisdiction"  onChange={handleChange}>
+        <option>Choose</option>
+        {getjur}    
+        </select><br/><br/><br/>
+        <label>Type</label><br/>
         <select name="type" id="type" onChange={handleChange}>
-        <option>Type</option>
+        <option>Choose</option>
         {gettypes}
+        </select><br/><br/>
+        <label>Priority</label><br/>
+        <select name="priority" id="priority" onChange={handleChange} >
+        <option>Choose</option>
+        {getpriorities}
         </select><br/><br/>
         <label>Number</label><br/>
         <input type="number" name="number" onChange={handleChange}></input><br/><br/>
         <label>Description</label><br/>
         <textarea name="description" onChange={handleChange}></textarea><br/><br/>
-       <div className='leaflet-container'> 
+        <div className='leaflet-container'> 
         {coords.latitude!=0&&
         <MapContainer
         classsName="map"

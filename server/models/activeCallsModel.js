@@ -31,7 +31,8 @@ const activeCallsSchema = new mongoose.Schema(
       trim: true
     },
     latitude:Number,
-    longitude:Number
+    longitude:Number,
+    priority:Number
   }
 );
 
