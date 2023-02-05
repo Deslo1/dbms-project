@@ -4,21 +4,30 @@
     "jurisdiction":"Thrissur",
     "type":"Domestic Abuse",
     "number":12345,
-    "description":"nil"
+    "description":"nil",
+    "priority":6,
+    "latitude":10.530345,
+    "longitude":76.214729
 },
 {
     "name":"Richard",
     "jurisdiction":"Thodupuzha",
-    "type":"Domestic Abuse",
+    "type":"Armed Assault",
     "number":12345,
-    "description":"Rape"
+    "description":"nil",
+    "priority":7,
+    "latitude":9.897157,
+    "longitude":76.713409
 }
 ,
 {
     "name":"Rayyan",
-    "jurisdiction":"Allapuzha",
-    "type":"Domestic Abuse",
+    "jurisdiction":"Alappuzha",
+    "type":"Public Nuisance",
     "number":12345,
-    "description":"Multiple Rapes"
+    "description":"nil",
+    "priority":8,
+    "latitude":9.498067,
+    "longitude":76.338844
 }
 ]
