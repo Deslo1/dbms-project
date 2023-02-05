@@ -36,3 +36,19 @@ body{
 .case-closed:hover{
     background-color: red;
 }
+
+
+.logOutButtonSquad {
+    position: relative;
+    left: 1vw;
+    width: 9.5vw;
+    text-align: center;
+    height: 7vh;
+    background-color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+.logOutButtonSquad:hover {
+    background-color: red;
+}

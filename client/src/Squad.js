@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import ShowMap from "./ShowMap"
 import axios from "axios";
 import "./styles/Squad.css";
-import { useLocation } from "react-router-dom";
+import { useLocation,Link } from "react-router-dom";
 
 function Squad(){
 
@@ -35,14 +35,14 @@ function Squad(){
         longitude:0
     })
     const [checked,setChecked]=useState(false);
-    const [criminal,setCriminal]=useState(null);
+    const [civ,setCiv]=useState(null);
 
     function Change(name){
-    setCriminal(name);
+    setCiv(name);
     }
 
     function sendReq(){
-        axios.get(`http://localhost:3001/?name=${criminal}&jurisdiction=${jurisdiction}`).then((response)=>{
+        axios.get(`http://localhost:3001/?name=${civ}&jurisdiction=${jurisdiction}`).then((response)=>{
             console.log(response.data.data.activecalls[0].latitude);
             setCorrds({
                 latitude:response.data.data.activecalls[0].latitude,
@@ -61,7 +61,7 @@ function Squad(){
     React.useEffect(() => {
     axios.get(`http://localhost:3001/?jurisdiction=${jurisdiction}`).then( (response) => {
     setFormData(response.data.data.activecalls)
-    setCriminal(response.data.data.activecalls[0].name)
+    setCiv(response.data.data.activecalls[0].name)
     })
     }, []);
 
@@ -99,14 +99,18 @@ function Squad(){
             <td>0</td>
             <td><input 
             type="checkbox"
-            checked={data.name===criminal?true:false}
+            checked={data.name===civ?true:false}
             onChange={() =>Change(data.name)}/></td>
         </tr>
         )
         }))}
         </table>}
-        {checked&&coords.latitude!=0&&<ShowMap coords={coords}/>}
+        {checked&&coords.latitude!==0&&<ShowMap coords={coords}/>}
         </div>
+
+    <button className="logOutButtonSquad" onClick={()=>window.location.href="http://localhost:3000/"}>
+        Log Out
+      </button>
         </div>
     )
 }

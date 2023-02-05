@@ -100,7 +100,7 @@ function Form(){
     map.on('click', onMapClick);
     function onMapClick(e) {
         if(i>0)
-        map.removeLayer(marker);
+            map.removeLayer(marker);
         i++;
         marker=new L.Marker(e.latlng,{icon:customIcon}).addTo(map);
         setFormData(prevFormData =>{
@@ -142,9 +142,12 @@ function Form(){
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
         <MapView />
         </MapContainer>}</div><br/>
-        <input type='submit' onClick={onSubmit}></input><br/><br/>
+        <button onClick={onSubmit}>Submit</button><br/><br/>
         </form>
         <ActiveCalls/>
+        <button className="logOutButton" onClick={()=>window.location.href="http://localhost:3000/"}>
+        Log Out
+        </button>
         </div>
     );
 }

@@ -21,6 +21,17 @@ input{
     width: 12vw;
 }
 
+ form button:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+
+}
+
+form button{
+    height: 4vh;
+    border-radius: 8px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -30,4 +41,19 @@ input::-webkit-inner-spin-button {
 .leaflet-container{
     width: 100%;
     height: 30vh;
+}
+
+.logOutButton {
+    position: relative;
+    left: 90vw;
+    width: 9.5vw;
+    text-align: center;
+    height: 7vh;
+    background-color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+.logOutButton:hover {
+    background-color: red;
 }

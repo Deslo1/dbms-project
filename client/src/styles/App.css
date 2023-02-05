@@ -7,3 +7,22 @@ body{
   display: flex;
   gap: 10vw;
 }
+
+.logOutButton{
+  position: relative;
+  left: 90vw;
+  width: 9.5vw;
+  text-align: center;
+  height: 7vh;
+  background-color: white;
+  border-radius: 8px;
+  border: none;
+}
+
+.logOutButton:hover{
+  background-color: red;
+}
+
+button{
+  cursor: pointer;
+}
