@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import ShowMap from "./ShowMap"
 import axios from "axios";
 import "./../styles/Squad.css";
-import { useLocation,Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Squad(){
 

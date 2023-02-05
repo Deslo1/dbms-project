@@ -4,7 +4,7 @@ import './../styles/Form.css';
 import { useEffect, useState } from "react";
 import ActiveCalls from "./ActiveCalls.js"
 import "leaflet/dist/leaflet.css";
-import icon from "./../icon.png";
+import icon from "./../images/icon.png";
 import L from "leaflet";
 import "leaflet-routing-machine";
 import { MapContainer, TileLayer,useMap } from "react-leaflet";
@@ -150,7 +150,7 @@ function Form(){
         <label>Description</label><br/>
         <textarea name="description" onChange={handleChange}></textarea><br/><br/>
         <div className='leaflet-container'> 
-        {coords.latitude!=0&&
+        {coords.latitude!==0&&
         <MapContainer
         classsName="map"
         center={[coords.latitude,coords.longitude]}

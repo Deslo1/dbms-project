@@ -1,8 +1,8 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import React from "react";
 import "./../styles/Map.css";
 import "leaflet/dist/leaflet.css";
-import icon from "./../icon.png";
+import icon from "./../images/icon.png";
 import L from "leaflet";
 import "leaflet-routing-machine";
 
