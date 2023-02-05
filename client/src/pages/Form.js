@@ -14,7 +14,15 @@ import "./../styles/Map.css";
 function Form(){
 
     const types=["Domestic Abuse","Armed Assault","Public Nuisance"];
-    const jurisdictions=["Thrissur","Thodupuzha","Allapuzha"];
+    const jurisdictions=["Thrissur","Thodupuzha","Alappuzha"];
+    const cords=[
+    {loc:"Thrissur",
+    lat:10.530345,lng:76.214729},
+    {loc:"Alappuzha",
+    lat:9.498067,lng:76.338844},
+    {loc:"Thodupuzha",
+    lat:9.897157,lng:76.713409}]
+
     const priority=[];
     for(let i=1;i<11;i++){
         priority.push(i);
@@ -41,6 +49,18 @@ function Form(){
         )
 
         function handleChange(event){
+          console.log(event.target.name)
+          if(event.target.name==='jurisdiction'){
+            cords.map(crd=>{
+              if(crd.loc===event.target.value){
+                setCorrds({
+                  latitude: crd.lat,
+                  longitude: crd.lng
+                  })
+
+              }
+            })
+          }
             setFormData(prevFormData =>{
                 return{
                     ...prevFormData,
@@ -59,10 +79,10 @@ function Form(){
     longitude: 0
   });
 
-
   function error() {
     alert('Sorry, no position available.');
   }
+
   const options = {
     enableHighAccuracy: true,
     maximumAge: 30000,
@@ -106,6 +126,7 @@ function Form(){
   function MapView() {
     let map = useMap();
     map.setView([coords.latitude,coords.longitude], map.getZoom());
+    map.setZoom(10);
     map.on('click', onMapClick);
     function onMapClick(e) {
         if(i>0)

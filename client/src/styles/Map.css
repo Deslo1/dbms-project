@@ -1,5 +1,6 @@
 .leaflet-routing-alternatives-container{
     width: 39vw;
+    height: auto;
     background-color: black;
     color: white;
     opacity: 0.4;
