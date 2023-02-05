@@ -1,8 +1,7 @@
 import './styles/App.css';
-import Form from "./Form.js";
-import Login from './Login.js';
-import Squad from './Squad';
-import ShowMap from "./ShowMap"
+import Form from "./pages/Form.js";
+import Login from './pages/Login.js';
+import Squad from './pages/Squad';
 import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
 
 function App() {
@@ -16,9 +15,6 @@ function App() {
         <Route path="/"  element={<Login />} />
       </Routes>
     </BrowserRouter>
-    <button className="logOutButton" onClick={()=>window.location.href="http://localhost:3000/"}>
-        Log Out
-      </button>
     </div>
   );
 }

@@ -8,8 +8,8 @@
 
 .Home{
     display: flex;
-    position: fixed;
-    gap: 12vw;
+    position: absolute;
+    gap: 10vw;
 }
 
 textarea{
@@ -44,7 +44,6 @@ input::-webkit-inner-spin-button {
 }
 
 .logOutButton {
-    position: relative;
     left: 90vw;
     width: 9.5vw;
     text-align: center;
