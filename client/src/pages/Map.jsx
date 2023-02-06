@@ -20,7 +20,6 @@ export default function Map({ start,end}) {
   function MapView() {
     let map = useMap();
     map.setView([slatitude, slongitude], map.getZoom());
-    // L.marker([e.latlng.lat,e.latlng.lng],{icon:customIcon}).addTo(map);
 
     L.Routing.control({
       waypoints:[
@@ -29,9 +28,8 @@ export default function Map({ start,end}) {
       ],
       createMarker: function(i, wp, nWps) {
     if (i === 0 || i === nWps - 1) {
-      // here change the starting and ending icons
       return L.marker(wp.latLng, {
-        icon: customIcon // here pass the custom marker icon instance
+        icon: customIcon 
       });
     } 
   }
@@ -46,8 +44,7 @@ export default function Map({ start,end}) {
       classsName="map"
       center={[slatitude, slongitude]}
       zoom={5}
-      scrollWheelZoom={true}
-    >
+      scrollWheelZoom={true}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
       <MapView />
     </MapContainer>
