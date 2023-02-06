@@ -29,7 +29,6 @@ user:newUser}
 exports.login =async (req, res, next) => {
 try{
 const { name, password } = req.body;
-// 1) Check if email and password exist
 
  if (!name || !password) {
  res.status(401).json({
@@ -38,17 +37,13 @@ const { name, password } = req.body;
  })
  }
 
- // 2) Check if user exists && password is correct
-
  const user = await User.findOne({name}).select('+password');
 
- if (!user || !(await user.correctPassword(password, user.password))) {//this funtion is defined in model for each document
+ if (!user || !(await user.correctPassword(password, user.password))) {
  res.status(401).json({
     status:'fail',
     message:'Incorrect Password or Username'
  }) }
-
- // 3) If everything ok, send token to client
 
  if(name==='dispatch'){
  res.status(201).json({
