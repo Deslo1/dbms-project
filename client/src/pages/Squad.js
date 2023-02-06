@@ -30,6 +30,18 @@ function Squad(){
         }
     )
 
+    const [newformData, setNewFormData] = useState(
+        {
+            name: "",
+            jurisdiction: "",
+            type: "",
+            priority: 0,
+            description: "",
+            latitude:null,
+            longitude:null}
+        
+    )
+
     const [coords,setCorrds]=useState({
         latitude:0,
         longitude:0
@@ -42,8 +54,8 @@ function Squad(){
     }
 
     function sendReq(){
-        console.log(id)
         axios.get(`http://localhost:3001/${id}`).then((response)=>{
+            setFormData(response.data.data.activecall);
             setCorrds({
                 latitude:response.data.data.activecall.latitude,
                 longitude:response.data.data.activecall.longitude
@@ -71,7 +83,7 @@ function Squad(){
     return(
         <div className="squadContainer">
             <div className="sidebar">
-            <h1>{name} {number}</h1><br/>
+            {!checked&&<div><h1>{name} {number}</h1><br/>
             <h1>{jurisdiction}</h1><br/><br/><br/><br/>
             <table>
             <tr>
@@ -79,7 +91,17 @@ function Squad(){
             <th>Role</th>
             </tr> 
             {members}
-            </table><br/><br/><br/><br/>
+            </table></div>}
+            {checked&&<div>
+            <h3>Name</h3>
+            {formData.name}
+            <h3>Number</h3>
+            {formData.number}
+            <h3>Type</h3>
+            {formData.type}
+            <h3>Description</h3>
+            {formData.description}
+            </div>}<br/><br/><br/><br/>
             {!checked&&<button className="case-button" onClick={sendReq}>Take Case</button>}
             {checked&&<button className="case-closed" onClick={loadNewCases}>Case Closed</button>}
             </div>

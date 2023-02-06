@@ -17,18 +17,13 @@ const activeCallsSchema = new mongoose.Schema(
       minlength: [5, 'An address must be present'],
     },
     type: {
-      type: String,
-      enum: {
-        values: ['Domestic Abuse', 'Armed Assault', 'Public Nuisance'],
-        message: ''
-      }
+      type: String
     },
     number: {
       type: Number,
     },
     description: {
       type: String,
-      trim: true
     },
     latitude:Number,
     longitude:Number,

@@ -72,8 +72,8 @@ function Form(){
         }
 
     function onSubmit(event) {
-            console.log(formData)
             axios.post("http://localhost:3001",formData).then((response) => {
+              console.log(response)
             });
             }
 
