@@ -10,6 +10,7 @@ router
 
 router
   .route('/:id')
+  .get(activeCallsController.getactiveCall)
   .delete(activeCallsController.deleteactiveCalls);
 
 module.exports = router;

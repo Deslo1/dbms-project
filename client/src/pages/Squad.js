@@ -35,19 +35,18 @@ function Squad(){
         longitude:0
     })
     const [checked,setChecked]=useState(false);
-    const [civ,setCiv]=useState(null);
     const [id,setId]=useState("");
 
-    function Change(name){
-    setCiv(name);
+    function Change(id){
+    setId(id);
     }
 
     function sendReq(){
-        axios.get(`http://localhost:3001/?name=${civ}&jurisdiction=${jurisdiction}`).then((response)=>{
-            setId(response.data.data.activecalls[0]._id);
+        console.log(id)
+        axios.get(`http://localhost:3001/${id}`).then((response)=>{
             setCorrds({
-                latitude:response.data.data.activecalls[0].latitude,
-                longitude:response.data.data.activecalls[0].longitude
+                latitude:response.data.data.activecall.latitude,
+                longitude:response.data.data.activecall.longitude
             })
             setChecked(true);
         })
@@ -56,7 +55,6 @@ function Squad(){
     function loadNewCases(){
               setChecked(false);
               axios.delete(`http://localhost:3001/${id}`).then((response)=>{
-                console.log(response);
                 window.location.href="http://localhost:3000/squad";
               })
     }
@@ -66,7 +64,7 @@ function Squad(){
     React.useEffect(() => {
     axios.get(`http://localhost:3001/?jurisdiction=${jurisdiction}&sort=-priority`).then( (response) => {
     setFormData(response.data.data.activecalls)
-    setCiv(response.data.data.activecalls[0].name)
+    setId(response.data.data.activecalls[0]._id)
     })
     }, []);
 
@@ -104,8 +102,8 @@ function Squad(){
             <td>{data.priority}</td>
             <td><input 
             type="checkbox"
-            checked={data.name===civ?true:false}
-            onChange={() =>Change(data.name)}/></td>
+            checked={data._id===id?true:false}
+            onChange={() =>Change(data._id)}/></td>
         </tr>
         )
         }))}

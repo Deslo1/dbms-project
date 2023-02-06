@@ -1,7 +1,7 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const User = require('./models/userModel');
+const activeCalls = require('./../models/activeCallsModel');
 
 dotenv.config({ path: './config.env' });
 
@@ -16,14 +16,14 @@ mongoose
   .then(() => console.log('DB connection successful!'));
 
 // READ JSON FILE
-const user = JSON.parse(
-  fs.readFileSync(`./userdata.json`, 'utf-8')
+const activecalls = JSON.parse(
+  fs.readFileSync(`./data.json`, 'utf-8')
 );
 
 // IMPORT DATA INTO DB
 const importData = async () => {
   try {
-    await User.create(user);
+    await activeCalls.create(activecalls);
     console.log('Data successfully loaded!');
   } catch (err) {
     console.log(err);
@@ -34,7 +34,7 @@ const importData = async () => {
 // DELETE ALL DATA FROM DB
 const deleteData = async () => {
   try {
-    await User.deleteMany();
+    await activeCalls.deleteMany();
     console.log('Data successfully deleted!');
   } catch (err) {
     console.log(err);

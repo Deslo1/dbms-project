@@ -49,7 +49,6 @@ function Form(){
         )
 
         function handleChange(event){
-          console.log(event.target.name)
           if(event.target.name==='jurisdiction'){
             cords.map(crd=>{
               if(crd.loc===event.target.value){
@@ -57,7 +56,6 @@ function Form(){
                   latitude: crd.lat,
                   longitude: crd.lng
                   })
-
               }
             })
           }
@@ -126,7 +124,7 @@ function Form(){
   function MapView() {
     let map = useMap();
     map.setView([coords.latitude,coords.longitude], map.getZoom());
-    map.setZoom(10);
+    map.setZoom(11);
     map.on('click', onMapClick);
     function onMapClick(e) {
         if(i>0)

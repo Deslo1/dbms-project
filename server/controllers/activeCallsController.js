@@ -20,7 +20,6 @@ exports.getAllactiveCalls =async (req, res, next) => {
     }
   });
 }
-
 catch(err){
 res.status(404).json({
 status:'fail',
@@ -37,7 +36,6 @@ exports.createactiveCall = async (req, res, next) => {
     }
   });
 }
-
 catch(err){
 res.status(404).json({
 status:'fail',
@@ -57,5 +55,24 @@ catch(err){
 res.status(404).json({
 status:'fail',
 message:err})
+}
+}
+
+exports.getactiveCall=async(req,res,next)=>{
+try{
+const activecall=await activeCalls.findById(req.params.id);
+res.status(200).json({
+status:'success',
+results:activecall.length,
+data:{
+activecall
+}
+})
+}
+catch(err){
+res.status(404).json({
+status:'fail',
+message: err
+})
 }
 }
