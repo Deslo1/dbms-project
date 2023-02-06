@@ -21,8 +21,7 @@
                 "role":"Support"
                 }]
         
-    },
-    {
+    },{
         "name":"Squad2",
         "password":"squad2",
         "jurisdiction":"Alappuzha",
@@ -43,11 +42,10 @@
             "member":"Joseph",
             "role":"Trainee"
             }]
-    },
-    {
+    },{
         "name":"Squad3",
         "password":"squad3",
-        "jurisdiction":"Thodupuzha",
+        "jurisdiction":"Idukki",
         "squad":
             [{
             "member":"Norris",
@@ -65,8 +63,51 @@
             "member":"Rocky",
             "role":"Support"
             }]
-    }
-    ,
+    },
+    {
+        "name":"Squad4",
+        "password":"squad4",
+        "jurisdiction":"Ernakulam",
+        "squad":
+            [{
+            "member":"Gordon",
+            "role":"Leader"
+            },
+            {
+            "member":"Michael",
+            "role":"Officer"
+            },
+            {
+            "member":"Mike",
+            "role":"Officer"
+            },
+            {
+            "member":"Bruno",
+            "role":"K9"
+            }]
+    },
+    {
+        "name":"Squad5",
+        "password":"squad5",
+        "jurisdiction":"Trivandrum",
+        "squad":
+            [{
+            "member":"Christopher",
+            "role":"Leader"
+            },
+            {
+            "member":"Matthew",
+            "role":"Officer"
+            },
+            {
+            "member":"Donald",
+            "role":"Officer"
+            },
+            {
+            "member":"Steven",
+            "role":"Detective"
+            }]
+    },
     {
         "name":"dispatch",
         "password":"dispatch"

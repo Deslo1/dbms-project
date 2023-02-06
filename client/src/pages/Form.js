@@ -13,15 +13,19 @@ import "./../styles/Map.css";
 
 function Form(){
 
-    const types=["Domestic Abuse","Armed Assault","Public Nuisance"];
-    const jurisdictions=["Thrissur","Thodupuzha","Alappuzha"];
+    const types=["Domestic Abuse","Armed Assault","Public Nuisance","Child Abuse","Burglary"];
+    const jurisdictions=["Ernakulam","Thrissur","Idukki","Alappuzha","Trivandrum"];
     const cords=[
     {loc:"Thrissur",
     lat:10.530345,lng:76.214729},
     {loc:"Alappuzha",
     lat:9.498067,lng:76.338844},
-    {loc:"Thodupuzha",
-    lat:9.897157,lng:76.713409}]
+    {loc:"Idukki",
+    lat:10.089167,lng:77.059723},
+    {loc:"Ernakulam",
+    lat:9.9816,lng:76.2999},
+    {loc:"Trivandrum",
+    lat:8.5241,lng:76.9366}]
 
     const priority=[];
     for(let i=1;i<11;i++){
@@ -68,6 +72,7 @@ function Form(){
         }
 
     function onSubmit(event) {
+            console.log(formData)
             axios.post("http://localhost:3001",formData).then((response) => {
             });
             }

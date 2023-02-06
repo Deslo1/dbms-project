@@ -1,30 +1,4 @@
-const jwt = require('jsonwebtoken');
 const User = require('./../models/userModel');
-
-
-const signToken = id => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN
-  });
-};
-
-exports.signup = async (req, res, next) => {
-const newUser = await User.create({
-name: req.body.name,
-password: req.body.password
- });
-
-const token = signToken(newUser._id);
-
-res.status(201).json({
-status: 'success',
-token,
-data:
-{
-user:newUser}
-})
-};
-
 
 exports.login =async (req, res, next) => {
 try{
