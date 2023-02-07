@@ -9,10 +9,12 @@
 .loginContainer form {
     text-align: center;
     height: auto;
-    border: 5px solid white;
+    border: 5px solid green;
     border-radius: 10px;
     width: 30vw;
 }
+
+
 
  .loginContainer input {
     width: 200px;

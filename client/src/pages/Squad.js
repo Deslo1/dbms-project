@@ -30,18 +30,6 @@ function Squad(){
         }
     )
 
-    const [newformData, setNewFormData] = useState(
-        {
-            name: "",
-            jurisdiction: "",
-            type: "",
-            priority: 0,
-            description: "",
-            latitude:null,
-            longitude:null}
-        
-    )
-
     const [coords,setCorrds]=useState({
         latitude:0,
         longitude:0
@@ -133,7 +121,7 @@ function Squad(){
         }
         {checked&&coords.latitude!==0&&<ShowMap coords={coords}/>}
         </div>
-        {!checked&&<button className="logOutButtonSquad" onClick={()=>window.location.href="http://localhost:3000/"}>
+        {!checked&&<button className="logOutButtonSquad" onClick={()=>window.location.href="http://localhost:3000/login"}>
         Log Out
         </button>}
         </div>

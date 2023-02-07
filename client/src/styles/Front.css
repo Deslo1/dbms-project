@@ -1,0 +1,98 @@
+.head-text{
+    position: relative;
+    font-size: 3vw;
+    top: 14vh;
+    left: 37vw;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+    animation: type 6s steps(60, end);
+}
+
+@keyframes type {
+    from {
+        width: 0;
+    }
+}
+
+.box-div{
+    position: relative;
+    display: flex;
+    left: 15vw;
+    gap: 10vw;
+    top: 20vh;
+}
+
+.box{
+    border: 5px solid green;
+    width: 28vw;
+    height: 33vh;
+    font-size: 2vw;
+    border-radius: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.dispatch-text{
+    position: relative;
+    opacity: 0;
+    top: 30vh;
+    left: 9vw;
+}
+
+.squad-text{
+    position: relative;
+    opacity: 0;
+    top: 30vh;
+    left: 11vw;
+}
+
+.box:hover .dispatch-text{
+    opacity: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+    animation: type 6s steps(60, end);
+}
+
+.box:hover .squad-text {
+    opacity: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+    animation: type 6s steps(60, end);
+}
+
+
+.box:hover {
+    transform: scale(1.1);
+    opacity: 2;
+}
+
+
+
+#dispatch-box{
+    background-image: url(./../images/dispatch.jfif);
+    background-repeat: no-repeat;
+    background-size: 28vw 33vh;
+    animation: cssAnimation 1s ease-in-out 1.9s forwards;
+    opacity: 0;
+}
+
+@keyframes cssAnimation {
+0% {opacity: 0;}
+25% {opacity: 0.25;}
+50% {opacity: 0.5;}
+75% {opacity: 0.75;}
+100% {opacity: 1;}  
+}
+
+#squad-box{
+            background-image: url(./../images/police2.jpg);
+            background-repeat: no-repeat;
+            background-size: 28vw 33vh;
+            animation: cssAnimation 1s ease-in-out 1.9s forwards;
+            opacity: 0;
+}
+

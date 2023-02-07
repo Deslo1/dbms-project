@@ -20,7 +20,6 @@ export default function Map({ start,end}) {
   function MapView() {
     let map = useMap();
     map.setView([slatitude, slongitude], map.getZoom());
-
     L.Routing.control({
       waypoints:[
         L.latLng(slatitude,slongitude),
@@ -45,7 +44,7 @@ export default function Map({ start,end}) {
       center={[slatitude, slongitude]}
       zoom={5}
       scrollWheelZoom={true}>
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" className="map-tiles"/>
       <MapView />
     </MapContainer>
   );

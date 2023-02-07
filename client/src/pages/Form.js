@@ -181,13 +181,13 @@ function Form(){
         zoom={5}
         scrollWheelZoom={true}
         >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" className="map-tiles"/>
         <MapView />
         </MapContainer>}</div><br/>
         <button onClick={onSubmit}>Submit</button><br/><br/>
         </form>
         <ActiveCalls/>
-        <button className="logOutButton" onClick={()=>window.location.href="http://localhost:3000/"}>
+        <button className="logOutButton" onClick={()=>window.location.href="http://localhost:3000/login"}>
         Log Out
         </button>
         </div>

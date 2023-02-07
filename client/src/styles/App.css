@@ -1,9 +1,25 @@
 body{
-  background-color: #282c34;
-  color: #ffd166;
+  background-color: black;
+  color: #00FF00;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.App{
+input,
+select,
+textarea {
+    background-color: rgb(42, 37, 37);
+  font-family: 'Courier New', Courier, monospace;
+  color: #00FF00;
+}
+
+textarea:focus,
+input:focus {
+  background-color: rgb(42, 37, 37);
+  font-family: 'Courier New', Courier, monospace;
+  color: #00FF00;
+}
+
+/* .App{
   display: flex;
   gap: 10vw;
 }
@@ -11,3 +27,13 @@ body{
 button{
   cursor: pointer;
 }
+
+:root {
+  --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  .map-tiles {
+    filter: var(--map-tiles-filter, none);
+  }
+} */
