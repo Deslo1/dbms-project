@@ -7,9 +7,10 @@ body{
 input,
 select,
 textarea {
-    background-color: rgb(42, 37, 37);
+  background-color: rgb(42, 37, 37);
   font-family: 'Courier New', Courier, monospace;
   color: #00FF00;
+  border: 2px solid green;
 }
 
 textarea:focus,
@@ -19,7 +20,7 @@ input:focus {
   color: #00FF00;
 }
 
-/* .App{
+.App{
   display: flex;
   gap: 10vw;
 }
@@ -36,4 +37,4 @@ button{
   .map-tiles {
     filter: var(--map-tiles-filter, none);
   }
-} */
+}

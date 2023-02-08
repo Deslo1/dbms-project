@@ -14,19 +14,28 @@ body{
     background-color: black;
     height: 100vh;
     text-align: center;
+    border: 2px solid;
+    border-color: black green black black;
     
 }
 
 .sidebar h1{
     margin: 0;
+    font-weight: normal;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .sidebar table{
     width: 19vw;
+    position: relative;
+    left: 0.5vw;
 }
 
 .sidebar button{
     width: 10vw;
+}
+.sidebar h2{
+    font-weight: normal;
 }
 
 .case-button:hover{
@@ -36,6 +45,7 @@ body{
 .case-closed:hover{
     background-color: red;
 }
+
 
 
 .logOutButtonSquad {
@@ -55,4 +65,8 @@ body{
 
 tr{
     text-align: center;
+}
+
+hr {
+    border: 3px solid green;
 }

@@ -22,14 +22,16 @@ input{
 }
 
  form button:hover{
-    background-color: greenyellow;
+    scale: 1.1;
+        background-color: teal;
     cursor: pointer;
-
 }
 
 form button{
     height: 4vh;
     border-radius: 8px;
+    background-color: green;
+    transform: transition 2s;
 }
 
 input::-webkit-outer-spin-button,

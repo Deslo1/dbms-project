@@ -13,6 +13,7 @@ function Front(){
     return(
     <div className="front-container">
     <p className="head-text">Pick Your Role</p>
+    <p className="blink">_</p>
     <div className="box-div">
     <div className="box" id="dispatch-box" onClick={frontPage}><p className="dispatch-text">Dispatch</p></div>
     <div className="box" id="squad-box" onClick={frontPage}><p className="squad-text">Squad</p></div>

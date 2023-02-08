@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import "./../styles/Login.css"
+import "./../styles/Login.css";
 
 function Login(){
 
@@ -36,6 +36,9 @@ function Login(){
 
     return(
     <div className="loginContainer">
+    <video id="background-video" autoPlay loop muted>
+    <source src="./videos/login-background.mp4" type="video/mp4"/>
+    </video>
     <form>
     <br/>
     <label>Username:</label><br/><br/>

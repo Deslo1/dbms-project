@@ -1,7 +1,7 @@
 .head-text{
     position: relative;
     font-size: 3vw;
-    top: 14vh;
+    top: 8vh;
     left: 37vw;
     white-space: nowrap;
     overflow: hidden;
@@ -14,13 +14,26 @@
         width: 0;
     }
 }
+.blink{
+    position: relative;
+    font-size: 3vw;
+    bottom: 6vh;
+    left: 63vw;
+    animation: blink-animation 0.7s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
 
 .box-div{
     position: relative;
     display: flex;
     left: 15vw;
     gap: 10vw;
-    top: 20vh;
+    top: 10vh;
 }
 
 .box{
@@ -29,8 +42,9 @@
     height: 33vh;
     font-size: 2vw;
     border-radius: 10px;
-    opacity: 0.5;
     cursor: pointer;
+    animation: cssAnimation 1s ease-in-out 1.9s forwards;
+    opacity: 0;
     transition: transform .2s;
 }
 
@@ -67,7 +81,6 @@
 
 .box:hover {
     transform: scale(1.1);
-    opacity: 2;
 }
 
 
@@ -76,8 +89,6 @@
     background-image: url(./../images/dispatch.jfif);
     background-repeat: no-repeat;
     background-size: 28vw 33vh;
-    animation: cssAnimation 1s ease-in-out 1.9s forwards;
-    opacity: 0;
 }
 
 @keyframes cssAnimation {
@@ -89,10 +100,8 @@
 }
 
 #squad-box{
-            background-image: url(./../images/police2.jpg);
+            background-image: url(./../images/police.jpg);
             background-repeat: no-repeat;
             background-size: 28vw 33vh;
-            animation: cssAnimation 1s ease-in-out 1.9s forwards;
-            opacity: 0;
 }
 

@@ -71,8 +71,8 @@ function Squad(){
     return(
         <div className="squadContainer">
             <div className="sidebar">
-            {!checked&&<div><h1>{name} {number}</h1><br/>
-            <h1>{jurisdiction}</h1><br/><br/><br/><br/>
+            {!checked&&<div><br/><h1>{name} {number}</h1><br/><hr/>
+            <h1>{jurisdiction}</h1><br/><hr/><br/><br/>
             <table>
             <tr>
             <th>Name</th>
@@ -82,13 +82,13 @@ function Squad(){
             </table></div>}
             {checked&&<div>
             <h3>Name</h3>
-            {formData.name}
+            {formData.name}<hr/>
             <h3>Number</h3>
-            {formData.number}
+            {formData.number}<hr/>
             <h3>Type</h3>
-            {formData.type}
+            {formData.type}<hr/>
             <h3>Description</h3>
-            {formData.description}
+            {formData.description}<hr/>
             </div>}<br/><br/><br/><br/>
             {!checked&&<button className="case-button" onClick={sendReq}>Take Case</button>}
             {checked&&<button className="case-closed" onClick={loadNewCases}>Case Closed</button>}
