@@ -79,3 +79,14 @@ tr{
 hr {
     border: 3px solid green;
 }
+
+.icon{
+    position: relative;
+    top:5vh;
+    right: 4vw;
+}
+
+#desc{
+    top: 40px;
+    right:6vw;
+}

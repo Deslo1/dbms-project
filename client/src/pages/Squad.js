@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import ShowMap from "./ShowMap"
 import axios from "axios";
 import "./../styles/Squad.css";
+import { FaUser,FaPhoneVolume,FaListUl,FaBook } from 'react-icons/fa';
 import { useLocation } from "react-router-dom";
 
 function Squad(){
@@ -81,12 +82,16 @@ function Squad(){
             {members}
             </table></div>}
             {checked&&<div>
+            <div className="icon">  <FaUser/> </div>
             <h3>Name</h3>
             {formData.name}<hr/>
+            <div className="icon">  <FaPhoneVolume/> </div>
             <h3>Number</h3>
             {formData.number}<hr/>
+            <div className="icon">  <FaListUl/> </div>
             <h3>Type</h3>
             {formData.type}<hr/>
+            <div className="icon" id="desc">  <FaBook/> </div>
             <h3>Description</h3>
             {formData.description}<hr/>
             </div>}<br/><br/><br/><br/>
