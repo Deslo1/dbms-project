@@ -9,7 +9,7 @@ router
   .post(activeCallsController.createactiveCall)
 
 router
-  .route('/:id')
+  .route('/id/:id')
   .get(activeCallsController.getactiveCall)
   .delete(activeCallsController.deleteactiveCalls);
 

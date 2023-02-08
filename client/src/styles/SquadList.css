@@ -1,0 +1,51 @@
+.squad-list{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    gap: 7vw;
+    width: 50vw;
+    height: 14vh;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.squad-list:hover{
+    border: 4px solid green;
+    cursor: pointer;
+}
+
+.squad-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    position: relative;
+    left: 26vw;
+    top: 5vh;
+    animation: cssAnimation 1.5s ease-in-out 1.9s forwards;
+    opacity: 0;
+}
+@keyframes cssAnimation {
+0% {opacity: 0;}
+25% {opacity: 0.25;}
+50% {opacity: 0.5;}
+75% {opacity: 0.75;}
+100% {opacity: 1;}
+}
+
+.squadlist-name{
+    position: relative;
+    font-size: 30px;
+}
+
+.squad-info{
+    position: relative;
+    left: 55vw;
+    border-radius: 10px;
+    bottom: 63vh;
+    width: 20vw;
+    height: 72vh;
+}
+ul{
+    padding: 0;
+}

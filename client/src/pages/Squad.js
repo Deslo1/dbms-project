@@ -42,7 +42,7 @@ function Squad(){
     }
 
     function sendReq(){
-        axios.get(`http://localhost:3001/${id}`).then((response)=>{
+        axios.get(`http://localhost:3001/id/${id}`).then((response)=>{
             setFormData(response.data.data.activecall);
             setCorrds({
                 latitude:response.data.data.activecall.latitude,
@@ -54,7 +54,7 @@ function Squad(){
 
     function loadNewCases(){
               setChecked(false);
-              axios.delete(`http://localhost:3001/${id}`).then((response)=>{
+              axios.delete(`http://localhost:3001/id/${id}`).then((response)=>{
                 window.location.href="http://localhost:3000/squad";
               })
     }

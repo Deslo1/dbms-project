@@ -1,6 +1,5 @@
 const activeCalls = require('./../models/activeCallsModel');
 
-
 exports.getAllactiveCalls =async (req, res, next) => {
   try{
   const queryObj={...req.query};

@@ -70,11 +70,11 @@
         "jurisdiction":"Ernakulam",
         "squad":
             [{
-            "member":"Gordon",
+            "member":"Fred",
             "role":"Leader"
             },
             {
-            "member":"Michael",
+            "member":"Mikey",
             "role":"Officer"
             },
             {
@@ -92,7 +92,7 @@
         "jurisdiction":"Trivandrum",
         "squad":
             [{
-            "member":"Christopher",
+            "member":"Chris",
             "role":"Leader"
             },
             {
@@ -104,7 +104,7 @@
             "role":"Officer"
             },
             {
-            "member":"Steven",
+            "member":"Steve",
             "role":"Detective"
             }]
     },

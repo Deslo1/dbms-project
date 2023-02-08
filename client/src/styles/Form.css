@@ -23,7 +23,7 @@ input{
 
  form button:hover{
     scale: 1.1;
-        background-color: teal;
+    background-color: teal;
     cursor: pointer;
 }
 

@@ -25,7 +25,6 @@ const { name, password } = req.body;
  user
  });
  }
-
  else{
  res.status(201).json({
  page: 'squad',
@@ -35,5 +34,23 @@ const { name, password } = req.body;
 }
 catch(err){
     console.log(err);
+}
+}
+
+exports.getAllSquads = async (req,res,next)=>{
+   try{
+   const allsquads =await User.find({});
+   res.status(200).json({
+   status: 'success',
+   results: allsquads.length,
+   data: {
+      allsquads
+    }
+  });
+}
+catch(err){
+res.status(404).json({
+status:'fail',
+message:err})
 }
 }

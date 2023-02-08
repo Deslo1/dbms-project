@@ -7,7 +7,11 @@ function Front(){
     const navigate=useNavigate();
 
     function frontPage(){
-        navigate("/login")
+        navigate("/login");
+    }
+
+    function squadlist(){
+        navigate("/squadlist");
     }
 
     return(
@@ -16,7 +20,7 @@ function Front(){
     <p className="blink">_</p>
     <div className="box-div">
     <div className="box" id="dispatch-box" onClick={frontPage}><p className="dispatch-text">Dispatch</p></div>
-    <div className="box" id="squad-box" onClick={frontPage}><p className="squad-text">Squad</p></div>
+    <div className="box" id="squad-box" onClick={squadlist}><p className="squad-text">Squad</p></div>
     </div>
     </div>)
 }
