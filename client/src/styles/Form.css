@@ -50,7 +50,7 @@ input::-webkit-inner-spin-button {
     width: 9.5vw;
     text-align: center;
     height: 7vh;
-    background-color: white;
+    background-color: green;
     border-radius: 8px;
     border: none;
 }

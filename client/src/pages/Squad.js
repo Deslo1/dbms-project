@@ -121,7 +121,7 @@ function Squad(){
         }
         {checked&&coords.latitude!==0&&<ShowMap coords={coords}/>}
         </div>
-        {!checked&&<button className="logOutButtonSquad" onClick={()=>window.location.href="http://localhost:3000/login"}>
+        {!checked&&<button className="logOutButtonSquad" onClick={()=>window.location.href="http://localhost:3000/"}>
         Log Out
         </button>}
         </div>

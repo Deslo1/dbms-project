@@ -38,8 +38,18 @@ body{
     font-weight: normal;
 }
 
+.case-button{
+    background-color: green;
+    border-radius: 5px;
+}
+
 .case-button:hover{
-    background-color: greenyellow;
+    background-color: teal;
+}
+
+.case-closed{
+    background-color: green;
+    border-radius: 5px;
 }
 
 .case-closed:hover{
@@ -50,11 +60,10 @@ body{
 
 .logOutButtonSquad {
     position: relative;
-    left: 1vw;
     width: 9.5vw;
     text-align: center;
     height: 7vh;
-    background-color: white;
+    background-color: green;
     border-radius: 8px;
     border: none;
 }

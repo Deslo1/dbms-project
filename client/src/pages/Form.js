@@ -187,7 +187,7 @@ function Form(){
         <button onClick={onSubmit}>Submit</button><br/><br/>
         </form>
         <ActiveCalls/>
-        <button className="logOutButton" onClick={()=>window.location.href="http://localhost:3000/login"}>
+        <button className="logOutButton" onClick={()=>window.location.href="http://localhost:3000/"}>
         Log Out
         </button>
         </div>
